@@ -1,6 +1,5 @@
 import requests
 
-
 def getCountrylist():
     ret = []
     for ctry in datas:
