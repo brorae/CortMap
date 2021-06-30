@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Rental
-from .checking import *
+from .datas import *
 
 import requests
 # Create your views here.
