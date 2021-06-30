@@ -7,13 +7,23 @@
     <title>Datas</title>
 </head>
 <body>
-    {{ data }}
-    <br>
-
-    {% for country in json %}
-        <p>{{country}}</p>
+    {% comment %} 
+        # country's index
+        #  0:  국가 이름
+        #  1:  국가 위도
+        #  2:  국가 경도
+        #  3:  국기 이미지 url
+        #  4:  총 인구수
+        #  5:  총 확진자수
+        #  6:  금일 확진자수
+        #  7:  총 사망자수
+        #  8:  금일 사망자수
+        #  9:  검사시행 인구수
+        #  10: 백신 접종인구수 
+    {% endcomment %}
+    {% for ctry in CorData %}
+        <p>{{ ctry }}</p>
     {% endfor %}
-
     <br>
 
 </body>

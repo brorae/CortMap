@@ -22,17 +22,17 @@ def getCountriesInformation():
                 isVac = False
                 break
         if isVac:
-            ret.append((ctry["country"],
-                        str(ctry["countryInfo"]["lat"]),
-                        str(ctry["countryInfo"]["long"]),
-                        ctry["countryInfo"]["flag"],
-                        str(ctry["population"]),
-                        str(ctry["cases"]),
-                        str(ctry["todayCases"]),
-                        str(ctry["deaths"]),
-                        str(ctry["todayDeaths"]),
-                        str(ctry["tests"]),
-                        str(vacdatas[i]["timeline"]["6/29/21"])
+            ret.append((ctry["country"],                                 # 국가이름
+                        str(ctry["countryInfo"]["lat"]),                 # 위도
+                        str(ctry["countryInfo"]["long"]),                # 경도
+                        ctry["countryInfo"]["flag"],                     # 국기 이미지 url
+                        str(ctry["population"]),                         # 총 인구수
+                        str(ctry["cases"]),                              # 총 확진자수
+                        str(ctry["todayCases"]),                         # 금일 확진자수
+                        str(ctry["deaths"]),                             # 총 사망자수
+                        str(ctry["todayDeaths"]),                        # 금일 사망자수
+                        str(ctry["tests"]),                              # 검사시행 인구수
+                        str(vacdatas[i]["timeline"]["6/29/21"])          # 백신접종 인구수
                     ))
             i += 1
         else:
@@ -107,4 +107,4 @@ params =  (
 response = requests.get('https://disease.sh/v3/covid-19/vaccine/coverage/countries', headers=headers, params=params)
 vacdatas = response.json()
 
-countrycheck()
+#countrycheck()

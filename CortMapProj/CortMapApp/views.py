@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-from .models import Rental
 from .datas import *
 
 import requests
@@ -10,8 +9,6 @@ def main(request):
 def data(request):
     datas = response.json()
     context = {
-        'data' : response,
-        "json": getCountriesInformation(),
-        "vacjson": getVaccineInformation(),
+        "CorData": getCountriesInformation(),
     }
     return render(request,'data.html',context)
