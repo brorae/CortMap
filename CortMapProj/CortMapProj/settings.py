@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'CortMapApp',
-    'django_google_maps'
 ]
 
 MIDDLEWARE = [
