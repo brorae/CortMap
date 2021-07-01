@@ -17,40 +17,59 @@
   </head>
   <body>
     <div id="map"></div>
-    <script>function initMap() {
-  const myLatLng = { lat: 33, lng: 65 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 2.5,
-    center: { lat: 37, lng: 127.5 },
-  });
-  new google.maps.Marker({
-    position: myLatLng,
-    map,
-    title: "Map",
-  });
-  new google.maps.Marker({
-    position: { lat: 37, lng: 127.5 },
-    map,
-    title: "Map",
-  });
-  new google.maps.Marker({
-    position: { lat: -27, lng: 133 },
-    map,
-    title: "Map",
-  });
-  new google.maps.Marker({
-    position: { lat: 38, lng: -97 },
-    map,
-    title: "Map",
-  });
-  new google.maps.Marker({
-    position: { lat: 60, lng: 100 },
-    map,
-    title: "Map",
-  });
-}</script>
+    <script>
+      function initMap() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 2.5,
+          center: { lat: 37, lng: 127.5 },
+        });
+
+        const markerList = [
+          [{lat: 33, lng:65}, "Marker 1"],
+          [{lat: 37, lng:127.5}, "Marker 2"],
+          [{lat: -27, lng:133}, "Marker 3"],
+          [{lat: 38, lng:-97}, "Marker 4"],
+          [{lat: 60, lng:100}, "Marker 5"],
+        ];
+        
+        const infoWindow = new google.maps.InfoWindow();
+
+        markerList.forEach(([pos,title], i) => {
+          const marker = new google.maps.Marker({
+            position: pos,
+            map,
+            title: `${i+1}. ${title}`,
+            optimized: false,
+          });
+          
+          
+          marker.addListener("click", () => {
+            infoWindow.close();
+            infoWindow.setContent(marker.getTitle());
+            infoWindow.open(marker.getMap(), marker);
+          });
+        });
+        
+        {% for ctry in CorData %}
+          var tmpmarker = new google.maps.Marker({
+            position: { lat: {{ ctry.1 }}, lng: {{ ctry.2 }} },
+            map,
+            title: "{{ctry.0}}",
+            optimized: false,
+          });
+          
+          
+          tmpmarker.addListener("click", () => {
+            infoWindow.close();
+            infoWindow.setContent(tmpmarker.getTitle());
+            infoWindow.open(tmpmarker.getMap(), tmpmarker);
+          });
+        {% endfor %}
+
+      }
+    </script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=&&callback=initMap&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5_5RuyzYDI3IaKsdp0rz8GXy32AZzReM&&callback=initMap&libraries=&v=weekly"
       async
     ></script>
   </body>
