@@ -3,17 +3,18 @@
   <head>
     <title>CortMap</title>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <style>
       #map {
-        height: 100%;
+    height: 100%;
       }
-      html,
-      body {
+    html,
+    body {
         height: 90%;
         margin: 0;
         padding: 0;
-      }
-      .gm-style .controls {
+    }
+    .gm-style .controls {
         font-size: 28px;
         /* this adjusts the size of all the controls */
         background-color: white;
@@ -28,25 +29,25 @@
         user-select: none;
         padding: 2px;
         width: 1em;
-      }
-      .gm-style .controls button {
+    }
+    .gm-style .controls button {
         border: 0;
         background-color: white;
         color: rgba(0, 0, 0, 0.6);
-      }
-      .gm-style .controls button:hover {
+    }
+    .gm-style .controls button:hover {
         color: rgba(0, 0, 0, 0.9);
-      }
-      .gm-style .controls.zoom-control {
+    }
+    .gm-style .controls.zoom-control {
         display: flex;
         flex-direction: column;
         height: auto;
-      }
-      .gm-style .controls.zoom-control button {
+    }
+    .gm-style .controls.zoom-control button {
         font: 0.85em Arial;
         margin: 1px;
         padding: 0;
-      }
+    }
     </style>
   </head>
   <body>
@@ -56,12 +57,20 @@
         <button class="zoom-control-in" title="Zoom In">+</button>
         <button class="zoom-control-out" title="Zoom Out">−</button>
       </div>
+      <div>
+        <button type="button" class="btn btn-outline-primary">Primary</button>
+        <button type="button" class="btn btn-outline-primary">Primary</button>
+      </div>
     <script>
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 2.5,
           center: { lat: 37, lng: 127.5 },
           disableDefaultUI: true,
+          zoomControl: true,
+          zoomControlOptions: {
+          position: google.maps.ControlPosition.RIGHT_CENTER,
+          },
         });
 
         const markerList = [
@@ -114,20 +123,56 @@
             map.setCenter(pos);
           });
         });
-      initZoomControl(map);
-      }
-      function initZoomControl(map) {
-        document.querySelector(".zoom-control-in").onclick = function () {
-          map.setZoom(map.getZoom() + 1);
-        };
 
-        document.querySelector(".zoom-control-out").onclick = function () {
-          map.setZoom(map.getZoom() - 1);
-        };
-        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
-          document.querySelector(".zoom-control")
-        );
+        /* 좌측 상단 버튼 부분
+           코드 시작 */
+        const centerControlDiv1 = document.createElement("div");
+        const centerControlDiv2 = document.createElement("div");
+        const centerControlDiv3 = document.createElement("div");
+        const centerControlDiv4 = document.createElement("div");
+        CenterControl(centerControlDiv1, "모두", map);
+        CenterControl(centerControlDiv2, "여행가능", map);
+        CenterControl(centerControlDiv3, "격리", map);
+        CenterControl(centerControlDiv4, "입국금지", map);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv1);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv2);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv3);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv4);
       }
+      function CenterControl(controlDiv, name, map) {
+        // Set CSS for the control border.
+        const controlUI = document.createElement("div");
+        controlUI.style.backgroundColor = "#fff";
+        controlUI.style.border = "2px solid #fff";
+        controlUI.style.borderRadius = "20px";
+        controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+        controlUI.style.cursor = "pointer";
+        controlUI.style.marginTop = "8px";
+        controlUI.style.marginBottom = "22px";
+        controlUI.style.marginLeft = "5px";
+        controlUI.style.marginRight = "5px";
+        controlUI.style.textAlign = "center";
+        controlUI.title = "Click";
+        controlDiv.appendChild(controlUI);
+        // Set CSS for the control interior.
+        const controlText = document.createElement("div");
+        controlText.style.color = "rgb(25,25,25)";
+        controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+        controlText.style.fontSize = "13px";
+        controlText.style.lineHeight = "30px";
+        controlText.style.width = "80px"
+        controlText.style.paddingLeft = "5px";
+        controlText.style.paddingRight = "5px";
+        controlText.innerHTML = name;
+        controlUI.appendChild(controlText);
+        // Setup the click event listeners
+        controlUI.addEventListener("click", () => {
+          
+        });
+      }
+      /* 좌측 상단 버튼 부분
+           코드 끝 */
+      
     </script>
     <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5_5RuyzYDI3IaKsdp0rz8GXy32AZzReM&&callback=initMap&libraries=&v=weekly"

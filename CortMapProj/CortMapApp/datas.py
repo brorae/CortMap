@@ -31,7 +31,7 @@ def getCountriesInformation():
                         str(ctry["deaths"]),                             # 총 사망자수
                         str(ctry["todayDeaths"]),                        # 금일 사망자수
                         str(ctry["tests"]),                              # 검사시행 인구수
-                        str(vacdatas[i]["timeline"]["6/30/21"])          # 백신접종 인구수
+                        str(vacdatas[i]["timeline"]["7/1/21"])          # 백신접종 인구수
                     ))
             i += 1
         else:
@@ -53,7 +53,7 @@ def getVaccineInformation():
     ret = []
     for ctry in vacdatas:
         ret.append((ctry["country"],
-                    ctry["timeline"]["6/29/21"]))
+                    ctry["timeline"]["7/1/21"]))
     return ret
 
 
