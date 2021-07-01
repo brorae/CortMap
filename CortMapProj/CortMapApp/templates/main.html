@@ -13,15 +13,57 @@
         margin: 0;
         padding: 0;
       }
+      .gm-style .controls {
+        font-size: 28px;
+        /* this adjusts the size of all the controls */
+        background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;
+        box-sizing: border-box;
+        border-radius: 2px;
+        cursor: pointer;
+        font-weight: 300;
+        height: 1em;
+        margin: 6px;
+        text-align: center;
+        user-select: none;
+        padding: 2px;
+        width: 1em;
+      }
+      .gm-style .controls button {
+        border: 0;
+        background-color: white;
+        color: rgba(0, 0, 0, 0.6);
+      }
+      .gm-style .controls button:hover {
+        color: rgba(0, 0, 0, 0.9);
+      }
+      .gm-style .controls.zoom-control {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+      }
+      .gm-style .controls.zoom-control button {
+        font: 0.85em Arial;
+        margin: 1px;
+        padding: 0;
+      }
+
     </style>
   </head>
   <body>
     <div id="map"></div>
+    <div style="display: none">
+      <div class="controls zoom-control">
+        <button class="zoom-control-in" title="Zoom In">+</button>
+        <button class="zoom-control-out" title="Zoom Out">−</button>
+      </div>
     <script>
+
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 2.5,
           center: { lat: 37, lng: 127.5 },
+          disableDefaultUI: true,
         });
 
         const markerList = [
@@ -64,8 +106,23 @@
             infoWindow.close();
             infoWindow.setContent(markerString);
             infoWindow.open(marker.getMap(), marker);
+            map.setZoom(5);
+            map.setCenter(marker.getPosition());
           });
         });
+      initZoomControl(map);
+      }
+      function initZoomControl(map) {
+        document.querySelector(".zoom-control-in").onclick = function () {
+          map.setZoom(map.getZoom() + 1);
+        };
+
+        document.querySelector(".zoom-control-out").onclick = function () {
+          map.setZoom(map.getZoom() - 1);
+        };
+        map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(
+          document.querySelector(".zoom-control")
+        );
       }
     </script>
     <script
