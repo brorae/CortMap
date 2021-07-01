@@ -47,7 +47,6 @@
         margin: 1px;
         padding: 0;
       }
-
     </style>
   </head>
   <body>
@@ -58,7 +57,6 @@
         <button class="zoom-control-out" title="Zoom Out">−</button>
       </div>
     <script>
-
       function initMap() {
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 2.5,
@@ -82,16 +80,20 @@
           {% endfor %}
         ];
         
-        const infoWindow = new google.maps.InfoWindow();
+        var infoWindow = new google.maps.InfoWindow();
 
         markerList.forEach(([pos,title,flag,popularity,alltake,tdtake,alldeath,tddeath,allcheck,allvac], i) => {
-          const marker = new google.maps.Marker({
-            position: pos,
+          const circle = new google.maps.Circle({
+            strokeColor: "#FF0000",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FF0000",
+            fillOpacity: 0.35,      
+            center: pos,
             map,
-            title: `${title}`,
-            optimized: false,
+            radius: Math.sqrt(alltake) * 150,
+            //optimized: false,
           });
-          
           const markerString =  "국가 이름: "+ title + " &nbsp"
                               + '<img src="' + flag + '"class="img" alt="" width = "30px" height = "20px" style = "border:1px solid">' + "<br>"
                               + "총 인구수: " + popularity.toString() + "<br>"
@@ -102,12 +104,14 @@
                               + "검사시행 인구수: " + allcheck.toString() + "<br>"
                               + "백신 접종인구수: " + allvac.toString() + "<br>"
           
-          marker.addListener("click", () => {
+          circle.addListener("click", () => {
             infoWindow.close();
-            infoWindow.setContent(markerString);
-            infoWindow.open(marker.getMap(), marker);
+            var nextinfoWindow = new google.maps.InfoWindow({position: pos});
+            nextinfoWindow.setContent(markerString);
+            nextinfoWindow.open(map);
+            infoWindow = nextinfoWindow;
             map.setZoom(5);
-            map.setCenter(marker.getPosition());
+            map.setCenter(pos);
           });
         });
       initZoomControl(map);
