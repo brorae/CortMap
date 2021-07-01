@@ -25,51 +25,51 @@
         });
 
         const markerList = [
-          [{lat: 33, lng:65}, "Marker 1"],
-          [{lat: 37, lng:127.5}, "Marker 2"],
-          [{lat: -27, lng:133}, "Marker 3"],
-          [{lat: 38, lng:-97}, "Marker 4"],
-          [{lat: 60, lng:100}, "Marker 5"],
+          {% for ctry in CorData %}
+          [{ lat: {{ctry.1}}, lng: {{ctry.2}} },
+           "{{ctry.0}}", // 국가이름
+           '{{ctry.3}}', // 국기 url
+            {{ctry.4}},  // 총 인구수 
+            {{ctry.5}},  // 총 확진자수 
+            {{ctry.6}}, // 금일 확진자수
+            {{ctry.7}}, // 총 사망자수
+            {{ctry.8}}, // 금일 사망자수
+            {{ctry.9}}, // 검사시행 인구수
+            "{{ctry.10}}" // 백신 접종인구수
+          ],
+          {% endfor %}
         ];
         
         const infoWindow = new google.maps.InfoWindow();
 
-        markerList.forEach(([pos,title], i) => {
+        markerList.forEach(([pos,title,flag,popularity,alltake,tdtake,alldeath,tddeath,allcheck,allvac], i) => {
           const marker = new google.maps.Marker({
             position: pos,
             map,
-            title: `${i+1}. ${title}`,
+            title: `${title}`,
             optimized: false,
           });
           
+          const markerString =  "국가 이름: "+ title + " &nbsp"
+                              + '<img src="' + flag + '"class="img" alt="" width = "30px" height = "20px" style = "border:1px solid">' + "<br>"
+                              + "총 인구수: " + popularity.toString() + "<br>"
+                              + "총 확진자수: " + alltake.toString() + "<br>"
+                              + "금일 확진자수: " + tdtake.toString() + "<br>"
+                              + "총 사망자수: " + alldeath.toString() + "<br>"
+                              + "금일 사망자수: " + tddeath.toString() + "<br>"
+                              + "검사시행 인구수: " + allcheck.toString() + "<br>"
+                              + "백신 접종인구수: " + allvac.toString() + "<br>"
           
           marker.addListener("click", () => {
             infoWindow.close();
-            infoWindow.setContent(marker.getTitle());
+            infoWindow.setContent(markerString);
             infoWindow.open(marker.getMap(), marker);
           });
         });
-        
-        {% for ctry in CorData %}
-          var tmpmarker = new google.maps.Marker({
-            position: { lat: {{ ctry.1 }}, lng: {{ ctry.2 }} },
-            map,
-            title: "{{ctry.0}}",
-            optimized: false,
-          });
-          
-          
-          tmpmarker.addListener("click", () => {
-            infoWindow.close();
-            infoWindow.setContent(tmpmarker.getTitle());
-            infoWindow.open(tmpmarker.getMap(), tmpmarker);
-          });
-        {% endfor %}
-
       }
     </script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=&&callback=initMap&libraries=&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5_5RuyzYDI3IaKsdp0rz8GXy32AZzReM&&callback=initMap&libraries=&v=weekly"
       async
     ></script>
   </body>
