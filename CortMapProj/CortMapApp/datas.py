@@ -10,17 +10,17 @@ def getCountrylist():
 
 def getCountriesInformation():
     ret = []
-    i = 0
     for ctry in datas:
+        i = 0
         origini = i
         isVac = True
-        while vacdatas[i]["country"] != ctry["country"]:
+        while (vacdatas[i]["country"] != ctry["country"]):
             i += 1
-            if i >= len(vacdatas):
+            if (i >= len(vacdatas)):
                 i = origini
                 isVac = False
                 break
-        if isVac:
+        if (isVac):
             ret.append((ctry["country"],                                 # 국가이름
                         str(ctry["countryInfo"]["lat"]),                 # 위도
                         str(ctry["countryInfo"]["long"]),                # 경도
@@ -64,15 +64,15 @@ def countrycheck():
         arr1.append(ctry["country"])
     for ctry in vacdatas:
         arr2.append(ctry["country"])
-    if len(arr1) == len(arr2):
+    if (len(arr1) == len(arr2)):
         for i in range(len(arr1)):
-            if arr1[i] != arr2[i]:
+            if (arr1[i] != arr2[i]):
                 print("not same")
-                return 0;
+                return 0
         print("same")
-        return 1;
+        return 1
     else:
-        if len(arr1) > len(arr2):
+        if (len(arr1) > len(arr2)):
             print("arr1 is longer")
             print(len(arr1), len(arr2))
         else:
