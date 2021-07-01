@@ -32,7 +32,7 @@ def getCountriesInformation():
                         str(ctry["todayDeaths"]),                        # 금일 사망자수
                         str(ctry["tests"]),                              # 검사시행 인구수
                         str(vacdatas[i]["timeline"]["6/30/21"])          # 백신접종 인구수
-                    ))
+            ))
             i += 1
         else:
             ret.append((ctry["country"],
