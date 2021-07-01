@@ -21,5 +21,5 @@ from CortMapApp.views import main, data
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main, name = "main"),
-    path('data/',data, name = "data"),
+    path('data/',data, name = "data")
 ]
