@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="496" height="42" viewBox="0 0 496 42">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #e5e9f2;
+      }
+
+      .cls-2 {
+        fill: #707070;
+        font-size: 16px;
+        font-family: AppleSDGothicNeo-Regular, Apple SD Gothic Neo;
+      }
+
+      .cls-3 {
+        fill: #262424;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="그룹_2067" data-name="그룹 2067" transform="translate(-1338 -30)">
+    <rect id="Rectangle" class="cls-1" width="496" height="42" rx="20" transform="translate(1338 30)"/>
+    <text id="Seach_Here" data-name="Seach Here" class="cls-2" transform="translate(1360 55)"><tspan x="0" y="0">여행지 찾아보기</tspan></text>
+    <path id="패스_2005" data-name="패스 2005" class="cls-3" d="M920.5-1404h-.794l-.276-.274A6.469,6.469,0,0,0,921-1408.5a6.5,6.5,0,0,0-6.5-6.5,6.5,6.5,0,0,0-6.5,6.5,6.5,6.5,0,0,0,6.5,6.5,6.47,6.47,0,0,0,4.225-1.566l.276.274v.792l5,4.991L925.49-1399l-4.988-5Zm-6,0a4.5,4.5,0,0,1-4.5-4.5,4.5,4.5,0,0,1,4.5-4.5,4.5,4.5,0,0,1,4.5,4.5,4.5,4.5,0,0,1-4.5,4.5Z" transform="translate(895.51 1456)"/>
+  </g>
+</svg>

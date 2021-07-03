@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="276" height="262" viewBox="0 0 276 262">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        opacity: 0.996;
+      }
+
+      .cls-2 {
+        filter: url(#합치기_4);
+      }
+    </style>
+    <filter id="합치기_4" x="0" y="0" width="276" height="262" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="팝업박스" transform="translate(9 6)">
+    <g class="cls-2" transform="matrix(1, 0, 0, 1, -9, -6)">
+      <path id="합치기_4-2" data-name="합치기 4" class="cls-1" d="M-2115,228h30l-15,16Zm-99,0a15,15,0,0,1-15-15V15a15,15,0,0,1,15-15h228a15,15,0,0,1,15,15V213a15,15,0,0,1-15,15Z" transform="translate(2238 6)"/>
+    </g>
+  </g>
+</svg>
