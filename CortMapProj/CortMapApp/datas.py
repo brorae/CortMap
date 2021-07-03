@@ -31,7 +31,7 @@ def getCountriesInformation():
                         str(ctry["deaths"]),                             # 총 사망자수
                         str(ctry["todayDeaths"]),                        # 금일 사망자수
                         str(ctry["tests"]),                              # 검사시행 인구수
-                        str(vacdatas[i]["timeline"]["7/2/21"])          # 백신접종 인구수
+                        str(vacdatas[i]["timeline"]["7/3/21"])          # 백신접종 인구수
                     ))
             i += 1
         else:
@@ -53,7 +53,7 @@ def getVaccineInformation():
     ret = []
     for ctry in vacdatas:
         ret.append((ctry["country"],
-                    ctry["timeline"]["7/1/21"]))
+                    ctry["timeline"]["7/3/21"]))
     return ret
 
 
@@ -79,6 +79,18 @@ def countrycheck():
             print("arr2 is longer")
         for i in range(min(len(arr1),len(arr2))):
             print(arr1[i],arr2[i])
+
+def getProhibitionInformation():
+    ret = []
+    prohibitCtry = ['Taiwan', 'New Zealand', "Lao People's Democratic Republic", 'Macao', 'Malaysia', 'Vietnam', 'Japan', 'Indonesia', 'Singapore', 'Philippines', 'Hong Kong', 'Australia', 'Argentina', 'Uruguay', 'Chile', 'Canada', 'Norway', 'Hungary', 'Cameroon', 'Congo', 'Algeria', 'Israel', 'Oman', 'Palestine']
+    ctryInform = getCountriesInformation()
+    for ctry in ctryInform:
+        for pro_ctry in prohibitCtry:
+            if ctry[0] == pro_ctry:
+                ret.append(ctry)
+    return ret
+
+
 
 #코로나 관련 정보 받아오는 곳
 # 222개 지역

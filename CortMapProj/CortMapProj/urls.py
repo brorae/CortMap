@@ -16,16 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from CortMapApp.views import main, data, base, recommend, detail
-
-from django.conf import settings
-from django.conf.urls.static import static
+from CortMapApp.views import main, data, base, showProhibition
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main, name="main"),
     path('data/', data, name="data"),
-    path('base', base, name="base"),
+    path('base/', base, name="base"),
+    path('showProhibition/', showProhibition, name="showProhibition"),
     path('rec/', recommend, name='recommend'),
     path('detail/<int:id>', detail, name='detail'),
 ]

@@ -21,9 +21,10 @@
         #  9:  검사시행 인구수
         #  10: 백신 접종인구수 
     {% endcomment %}
-    {% for ctry in CorData %}
+    {{CorData}}
+    {% comment %} {% for ctry in CorData %}
         <p>{{ ctry }}</p>
-    {% endfor %}
+    {% endfor %} {% endcomment %}
     <br>
 
 </body>

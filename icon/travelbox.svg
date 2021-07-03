@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1487" height="140" viewBox="0 0 1487 140">
+  <defs>
+    <style>
+      .cls-1, .cls-6 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        fill: none;
+        stroke: #cacccc;
+        stroke-width: 2px;
+      }
+
+      .cls-3 {
+        fill: #464545;
+        font-size: 22px;
+        font-family: AppleSDGothicNeo-SemiBold, Apple SD Gothic Neo;
+        font-weight: 600;
+      }
+
+      .cls-4 {
+        fill: #707070;
+        font-size: 18px;
+        font-family: AppleSDGothicNeo-Regular, Apple SD Gothic Neo;
+      }
+
+      .cls-5 {
+        fill: #589ceb;
+        opacity: 0.569;
+      }
+
+      .cls-6 {
+        fill-rule: evenodd;
+      }
+
+      .cls-7 {
+        filter: url(#사각형_427);
+      }
+    </style>
+    <filter id="사각형_427" x="0" y="0" width="1487" height="140" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feFlood flood-opacity="0.259"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="구성_요소_109_1" data-name="구성 요소 109 – 1" transform="translate(15 10)">
+    <g id="숙소검색필드">
+      <g class="cls-7" transform="matrix(1, 0, 0, 1, -15, -10)">
+        <rect id="사각형_427-2" data-name="사각형 427" class="cls-1" width="1457" height="110" rx="20" transform="translate(15 10)"/>
+      </g>
+      <line id="선_3" data-name="선 3" class="cls-2" y2="54.768" transform="translate(463.529 24.95)"/>
+      <line id="선_4" data-name="선 4" class="cls-2" y2="54.768" transform="translate(770.232 24.95)"/>
+      <line id="선_5" data-name="선 5" class="cls-2" y2="54.768" transform="translate(1078.152 24.95)"/>
+    </g>
+    <text id="위치" class="cls-3" transform="translate(60 42)"><tspan x="0" y="0">위치</tspan></text>
+    <text id="체크인" class="cls-3" transform="translate(506 42)"><tspan x="0" y="0">체크인</tspan></text>
+    <text id="체크아웃" class="cls-3" transform="translate(812 42)"><tspan x="0" y="0">체크아웃</tspan></text>
+    <text id="인원" class="cls-3" transform="translate(1120 42)"><tspan x="0" y="0">인원</tspan></text>
+    <text id="어디로_여행가세요_" data-name="어디로 여행가세요?" class="cls-4" transform="translate(60 77)"><tspan x="0" y="0">어디로 여행가세요?</tspan></text>
+    <text id="날짜_입력" data-name="날짜 입력" class="cls-4" transform="translate(506 77)"><tspan x="0" y="0">날짜 입력</tspan></text>
+    <text id="날짜_입력-2" data-name="날짜 입력" class="cls-4" transform="translate(812 77)"><tspan x="0" y="0">날짜 입력</tspan></text>
+    <text id="게스트_추가" data-name="게스트 추가" class="cls-4" transform="translate(1120 77)"><tspan x="0" y="0">게스트 추가</tspan></text>
+    <g id="여행지검색아이콘" transform="translate(1368 24)">
+      <ellipse id="타원_13" data-name="타원 13" class="cls-5" cx="31.5" cy="31" rx="31.5" ry="31"/>
+      <path id="패스_2012" data-name="패스 2012" class="cls-6" d="M923.66-1401.222h-.995l-.346-.343a8.1,8.1,0,0,0,1.964-5.293,8.141,8.141,0,0,0-8.142-8.141,8.141,8.141,0,0,0-8.142,8.141,8.141,8.141,0,0,0,8.142,8.141,8.105,8.105,0,0,0,5.292-1.962l.346.343v.992l6.26,6.251,1.867-1.867-6.248-6.263Zm-7.518,0a5.635,5.635,0,0,1-5.636-5.636,5.636,5.636,0,0,1,5.636-5.636,5.637,5.637,0,0,1,5.637,5.636,5.636,5.636,0,0,1-5.637,5.636Z" transform="translate(-887.32 1435.248)"/>
+    </g>
+  </g>
+</svg>
