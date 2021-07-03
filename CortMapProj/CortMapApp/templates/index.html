@@ -18,7 +18,9 @@
 						<div class="inner">
 							<!-- Header -->
 								<header id="header">
-									<a href="index.html" class="logo" id="MainTitle"><strong>CortMap</strong></a>
+									<a href = "{% url 'main' %}" style = "border-bottom: solid 0px">
+									<img class = "icon" src="{% static 'images/rlogo.png' %}" style = "width: 181px; height:30px; flex:0">
+									</a>
 									<ul class="icons">
 										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 										<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -52,14 +54,6 @@
 									<header class="major">
 										<h2>백신</h2>
 									</header>
-                  <div style = "margin: 15px 2px 15px 2px ">
-                    <input type = "checkbox" class="btn-check" id="btn-check-outlined" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btn-check-outlined" style = "float: left margin:">Single toggle</label><br>
-                    <input type = "checkbox" class="btn-check" id="btn-check-outlined1" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btn-check-outlined1" style = "float: left">Single toggle</label><br>
-                    <input type = "checkbox" class="btn-check" id="btn-check-outlined2" autocomplete="off">
-                    <label class="btn btn-outline-primary" for="btn-check-outlined2" style = "float: left">Single toggle</label><br>
-                  </div>
                   <div class = "posts">
 										<article class = "wide">
 											<a href="#" class="image"><img src="{% static 'images/vgrap.png' %}" alt="" /></a>
