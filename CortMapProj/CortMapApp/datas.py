@@ -80,6 +80,18 @@ def countrycheck():
         for i in range(min(len(arr1),len(arr2))):
             print(arr1[i],arr2[i])
 
+def getProhibitionInformation():
+    ret = []
+    prohibitCtry = ['Taiwan', 'New Zealand', "Lao People's Democratic Republic", 'Macao', 'Malaysia', 'Vietnam', 'Japan', 'Indonesia', 'Singapore', 'Philippines', 'Hong Kong', 'Australia', 'Argentina', 'Uruguay', 'Chile', 'Canada', 'Norway', 'Hungary', 'Cameroon', 'Congo', 'Algeria', 'Israel', 'Oman', 'Palestine']
+    ctryInform = getCountriesInformation()
+    for ctry in ctryInform:
+        for pro_ctry in prohibitCtry:
+            if ctry[0] == pro_ctry:
+                ret.append(ctry)
+    return ret
+
+
+
 #코로나 관련 정보 받아오는 곳
 # 222개 지역
 headers = {

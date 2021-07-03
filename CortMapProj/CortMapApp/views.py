@@ -8,14 +8,23 @@ def main(request):
     context = {
         "CorData": getCountriesInformation(),
     }
-    return render(request,'main.html',context)
+    return render(request,'main2.html',context)
 
 def data(request):
     datas = response.json()
     context = {
         "CorData": getCountriesInformation(),
+        "CorData2": getProhibitionInformation(),
     }
     return render(request,'data.html',context)
 
 def base(request):
     return render(request,'index.html')
+
+def showProhibition(request):
+    datas = response.json()
+    context = {
+        "CorData": getCountriesInformation(),
+        "ProhibitCorData" : getProhibitionInformation(),
+    }
+    return render(request,'showProhibition.html',context)

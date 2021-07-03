@@ -1,13 +1,6 @@
+{% extends 'index.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>CortMap</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  </head>
-  <body>
+    {% block content %}
     <div id="map"></div>
     <div style="display: none">
       <div class="controls zoom-control">
@@ -31,7 +24,7 @@
         });
 
         const markerList = [
-          {% for ctry in CorData %}
+          {% for ctry in ProhibitCorData %}
           [{ lat: {{ctry.1}}, lng: {{ctry.2}} },
            "{{ctry.0}}", // 국가이름
            '{{ctry.3}}', // 국기 url
@@ -126,9 +119,50 @@
         controlUI.appendChild(controlText);
         // Setup the click event listeners
         controlUI.addEventListener("click", () => {
-          {% comment %} 여기다가 클릭시 쏘는 function 집어넣기 {% endcomment %}
+            if (ControlDiv == centerControlDiv1){
+                movePage1();
+            }
+            if (ControlDiv == centerControlDiv2){
+                movePage2();
+            }
+            if (ControlDiv == centerControlDiv3){
+                movePage3();
+            }
+            if (ControlDiv == centerControlDiv4){
+                movePage4();
+            }
+
         });
       }
+
+      
+      function movePage1() { 
+          var link = 'https://www.nexon.com/';
+          location.href=link;
+          location.href(link);
+      }
+
+      function movePage2() { 
+          var link = 'https://www.naver.com/';
+          location.href=link;
+          location.href(link);
+      }
+
+      function movePage3() { 
+          var link = 'https://www.daum.com/';
+          location.href=link;
+          location.href(link);
+      }
+
+      
+      function movePage4() { 
+        var action="{% url 'showProhibition' %}";
+        method="GET";
+        enctype="multipart/form-data";
+        location.href=action;
+        location.href(action);
+      }
+
       /* 좌측 상단 버튼 부분
            코드 끝 */
       
@@ -137,5 +171,4 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5_5RuyzYDI3IaKsdp0rz8GXy32AZzReM&&callback=initMap&libraries=&v=weekly"
       async
     ></script>
-  </body>
-</html>
+    {% endblock content %}
