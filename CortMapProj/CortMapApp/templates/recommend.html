@@ -156,7 +156,7 @@
                         {% endfor %}
                     </div>
                     <div>
-                        <a href="#" class="image"></a><img src="../static/images/today_travel.PNG" alt=""
+                        <a href="#" class="image"><img src="../static/images/today_travel.PNG" alt=""
                             style='flex:1' /></a>
                     </div>
 
@@ -201,54 +201,53 @@
 
 
         <!-- Sidebar -->
-        <div id="sidebar">
-            <div class="inner">
+					<div id="sidebar">
+						<div class="inner">
 
-                <!-- Menu -->
-                <nav id="menu">
-                    <header class="major">
-                        <h2>Menu</h2>
-                    </header>
-                    <ul>
-                        <li><a href="index.html">Homepage</a></li>
-                        <li><a href="generic.html">Generic</a></li>
-                        <li><a href="elements.html">Elements</a></li>
-                        <li>
-                            <span class="opener">Submenu</span>
-                            <ul>
-                                <li><a href="#">Lorem Dolor</a></li>
-                                <li><a href="#">Ipsum Adipiscing</a></li>
-                                <li><a href="#">Tempus Magna</a></li>
-                                <li><a href="#">Feugiat Veroeros</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li>
+											<span class="opener">CORTMAP</span>
+											<ul>
+												<li><a href="#">백신</a></li>
+												<li><a href="#">격리</a></li>
+												<li><a href="#">거리두기</a></li>
+											</ul>
+										</li>
+										<li><a href="{% url 'recommend' %}">여행지</a></li>
+										<li><a href="#">자주 묻는 질문</a></li>	
+									</ul>
+								</nav>
 
-                <section>
-                    <header class="major">
-                        <h2>Get in touch</h2>
-                    </header>
-                    <p>팀원소개</p>
-                    <ul class="contact">
-                        <li class="fa-envelope-o"><a href="#">information@untitled.tld</a></li>
-                        <li class="fa-phone">(000) 000-0000</li>
-                        <li class="fa-home">1234 Somewhere Road #8254<br />
-                            Nashville, TN 00000-0000</li>
-                    </ul>
-                </section>
+								<section>
+									<header class="major">
+										<h2>Team</h2>
+									</header>
+									
+									<ul class="contact">
+										<lili>
+										저희 코트냥은 개발자 2명, 기획자 1명, 디자이너 1명으로 
+											이루어진 팀으로 코로나 이후 해외여행을 계획하는 사람들을
+											위해 정확한 실시간 정보와 안전한 여행길을 제시해드리겠습니다.</lili>
+										<li class="fa-desktop"> 개발자 - 조형래, 최준형</li>
+										<li class="fa-calendar"> 기획자 - 최은선 </li>
+										<li class="fa-paint-brush"> 디자이너 - 임다민 </li>
+									</ul>
+								</section>
 
-                <!-- Footer -->
-                <footer id="footer">
-                    <p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a
-                            href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5
-                            UP</a>.</p>
-                </footer>
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
 
-            </div>
-        </div>
+						</div>
+					</div>
 
-    </div>
+			</div>
 
     <!-- Scripts -->
     <script src="{% static 'js/jquery.min.js' %}"></script>
