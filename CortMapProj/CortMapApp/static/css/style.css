@@ -1,5 +1,5 @@
 #map{
-    width: 1050px;
+    width: 100%;
     height: 400px;
 }
 
@@ -55,6 +55,44 @@ html,body {
     opacity: 1;
     /* box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16); */
     background-color: #ffffff;
+}
+
+.infoWindowCustom .title{
+  /* width: 52px; */
+  height: 24px;
+  margin: 0 52px 19px 7px;
+  padding: 0 0 0 3px;
+  font-family: AppleSDGothicNeo;
+  font-size: 24px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #191818;
+}
+
+.infoWindowCustom .title .flag{
+  width: 30px;
+  height: 20px;
+  margin-top: 7px;
+  font-family: AppleSDGothicNeo;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #191818;
+  display: inline;
+}
+
+.infoWindowCustom .text{
+  height: 19px;
+  margin: 0 37px 7px 0;
+  padding-left: 7px;
 }
 
 .pac-card {

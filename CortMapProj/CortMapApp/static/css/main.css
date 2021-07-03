@@ -1,6 +1,11 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
 
+@font-face {
+    font-family: 'AppleSDGothicNeo';
+    src: url('../fonts/AppleSDGothicNeoM.ttf') format('truetype');
+}
+
 /*
 	Editorial by HTML5 UP
 	html5up.net | @ajlkn
@@ -2135,7 +2140,7 @@
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #3d4449;
-		font-family: "Roboto Slab", serif;
+		font-family: "AppleSDGothicNeo", serif;
 		font-weight: 700;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
@@ -2273,7 +2278,7 @@
 	}
 
 	header p {
-		font-family: "Roboto Slab", serif;
+		font-family: "AppleSDGothicNeo", serif;
 		font-size: 1em;
 		font-weight: 400;
 		letter-spacing: 0.075em;
@@ -2957,7 +2962,7 @@
 		color: #f56a6a !important;
 		cursor: pointer;
 		display: inline-block;
-		font-family: "Roboto Slab", serif;
+		font-family: "AppleSDGothicNeo", serif;
 		font-size: 0.8em;
 		font-weight: 700;
 		height: 3.5em;
@@ -3454,6 +3459,67 @@
 						}
 
 		}
+		.posts article.wide{
+			-moz-flex-grow: 0;
+			-webkit-flex-grow: 0;
+			-ms-flex-grow: 0;
+			flex-grow: 0;
+			-moz-flex-shrink: 1;
+			-webkit-flex-shrink: 1;
+			-ms-flex-shrink: 1;
+			flex-shrink: 1;
+			margin: 0 0 6em 6em;
+			position: relative;
+			width: calc(66.6666% - 6em);
+		}
+
+			.posts article.wide:before {
+				background: rgba(210, 215, 217, 0.75);
+				content: '';
+				display: block;
+				height: calc(100% + 6em);
+				left: -3em;
+				position: absolute;
+				top: 0;
+				width: 1px;
+			}
+
+			.posts article.wide:after {
+				background: rgba(210, 215, 217, 0.75);
+				bottom: -3em;
+				content: '';
+				display: block;
+				height: 1px;
+				position: absolute;
+				right: 0;
+				width: calc(100% + 6em);
+			}
+
+			.posts article.wide> :last-child {
+				margin-bottom: 0;
+			}
+
+			.posts article.wide .image {
+				display: block;
+				margin: 0 0 2em 0;
+			}
+
+				.posts article.wide .image img {
+					display: block;
+					width: 100%;
+				}
+    @media screen and (max-width: 1680px) {
+
+      .posts article.wide{
+        width: calc(100% - 6em);
+      }
+
+        .posts article.wide:nth-last-child(3) {
+          margin-bottom: 6em;
+        }
+
+    }
+
 
 /* Wrapper */
 
@@ -3808,7 +3874,7 @@
 		#header .logo {
 			border-bottom: 0;
 			color: inherit;
-			font-family: "Roboto Slab", serif;
+			font-family: "AppleSDGothicNeo", serif;
 			font-size: 1.125em;
 		}
 
@@ -3819,7 +3885,7 @@
 		@media screen and (max-width: 1680px) {
 
 			#header {
-				padding-top: 5em;
+				padding-top: 2em;
 			}
 
 		}
@@ -3968,7 +4034,7 @@
 		-ms-user-select: none;
 		user-select: none;
 		color: #3d4449;
-		font-family: "Roboto Slab", serif;
+		font-family: "AppleSDGothicNeo", serif;
 		font-family: 400;
 		letter-spacing: 0.075em;
 		list-style: none;
