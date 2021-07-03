@@ -16,14 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-<<<<<<< HEAD
-from CortMapApp.views import main, data, base, recommend, detail, showProhibition
+from CortMapApp.views import *
 
 from django.conf import settings
 from django.conf.urls.static import static
-=======
-from CortMapApp.views import *
->>>>>>> 79f680eca98e11da61221fbda2ff1d488425c498
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,7 +29,7 @@ urlpatterns = [
     path('showProhibition/', showProhibition, name="showProhibition"),
     path('rec/', recommend, name='recommend'),
     path('detail/<int:id>', detail, name='detail'),
-    path('travelPossible/',travelPossible,name="travelPossible"),
+    path('travelPossible/', travelPossible, name="travelPossible"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
