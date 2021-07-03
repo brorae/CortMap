@@ -125,8 +125,6 @@
                 movePage1();
             else if (controlDiv.innerText == "여행가능")
                 movePage2();
-            else if (controlDiv.innerText == "격리")
-                movePage3();
             else if (controlDiv.innerText == "입국금지")
                 movePage4();
         });
@@ -147,12 +145,6 @@
           enctype="multipart/form-data";
           location.href=action;
           location.href(action);
-      }
-
-      function movePage3() { 
-          var link = 'https://www.daum.com/';
-          location.href=link;
-          location.href(link);
       }
 
       function movePage4() { 
