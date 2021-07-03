@@ -118,6 +118,7 @@
         controlText.innerHTML = name;
         controlUI.appendChild(controlText);
         // Setup the click event listeners
+  
         controlUI.addEventListener("click", () => {
             if (ControlDiv == centerControlDiv1){
                 movePage1();
@@ -155,11 +156,11 @@
       }
 
       function movePage4() { 
-        var action="{% url 'showProhibition' %}";
-        method="GET";
-        enctype="multipart/form-data";
-        location.href=action;
-        location.href(action);
+          var action="{% url 'showProhibition' %}";
+          method="GET";
+          enctype="multipart/form-data";
+          location.href=action;
+          location.href(action);
       }
 
       /* 좌측 상단 버튼 부분
