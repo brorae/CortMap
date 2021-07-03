@@ -31,6 +31,7 @@ urlpatterns = [
     path('rec/', recommend, name='recommend'),
     path('detail/<int:id>', detail, name='detail'),
     path('travelPossible/', travelPossible, name="travelPossible"),
+    path('main1/', main1, name="main1"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
