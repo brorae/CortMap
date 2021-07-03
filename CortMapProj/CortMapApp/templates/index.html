@@ -16,10 +16,10 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<!-- Header -->
+							<!-- Header --><a href = "{% url 'main' %}" style = "border-bottom: solid 0px">
 								<header id="header">
 									<a href = "{% url 'main' %}" style = "border-bottom: solid 0px">
-									<img class = "icon" src="{% static 'images/rlogo.png' %}" style = "width: 181px; height:30px; flex:0">
+									<img class = "icon" src="{% static 'images/nlogo.png' %}" style = "width: 181px; height:30px; flex:0">
 									</a>
 									<ul class="icons">
 										<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
@@ -32,8 +32,8 @@
 							<!-- Banner -->
 								<section id="banner">
 									{% block content %}
-                    지도 들어갈 부분
-                  {% endblock content %}
+										지도 들어갈 부분
+									{% endblock content %}
 								</section>
 							<!-- Section -->
 								<section>
@@ -48,13 +48,13 @@
 											<a href="#" class="image"><img src="{% static 'images/total.png' %}" alt="" /></a>
 											</ul>
 										</article>
-                  </div>
-                </section>
-                <section>
+									</div>
+								</section>
+								<section>
 									<header class="major">
 										<h2>백신</h2>
 									</header>
-                  <div class = "posts">
+									<div class = "posts">
 										<article class = "wide">
 											<a href="#" class="image"><img src="{% static 'images/vgrap.png' %}" alt="" /></a>
 											
