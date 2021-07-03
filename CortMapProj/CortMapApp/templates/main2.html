@@ -86,6 +86,7 @@
         CenterControl(centerControlDiv2, "여행가능", map);
         CenterControl(centerControlDiv3, "격리", map);
         CenterControl(centerControlDiv4, "입국금지", map);
+        console.log(centerControlDiv1.innerText);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv1);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv2);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv3);
@@ -93,6 +94,7 @@
       }
       function CenterControl(controlDiv, name, map) {
         // Set CSS for the control border.
+        const bcontrolDiv = controlDiv;
         const controlUI = document.createElement("div");
         controlUI.style.backgroundColor = "#fff";
         controlUI.style.border = "2px solid #fff";
@@ -118,20 +120,15 @@
         controlText.innerHTML = name;
         controlUI.appendChild(controlText);
         // Setup the click event listeners
-        controlUI.addEventListener("click", () => {
-            if (ControlDiv == centerControlDiv1){
+        controlUI.addEventListener("click", function() {
+            if (controlDiv.innerText == "모두")
                 movePage1();
-            }
-            else if (ControlDiv == centerControlDiv2){
+            else if (controlDiv.innerText == "여행가능")
                 movePage2();
-            }
-            else if (ControlDiv == centerControlDiv3){
+            else if (controlDiv.innerText == "격리")
                 movePage3();
-            }
-            else if (ControlDiv == centerControlDiv4){
+            else if (controlDiv.innerText == "입국금지")
                 movePage4();
-            }
-
         });
       }
 
