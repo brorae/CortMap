@@ -16,3 +16,6 @@ def data(request):
         "CorData": getCountriesInformation(),
     }
     return render(request,'data.html',context)
+
+def base(request):
+    return render(request,'index.html')

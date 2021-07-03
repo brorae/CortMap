@@ -8,6 +8,7 @@
     <title>CortMap</title>
 </head>
 <body>
+    {% comment %} 상단 바 {% endcomment %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
@@ -32,6 +33,32 @@
             </div>
         </div>
     </nav>
+    {% comment %} 옆부분 부르는 버튼 {% endcomment %}
+    <a class="btn btn-primary" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+        Link with href
+    </a>
+    {% comment %} 여기부터 옆부분 {% endcomment %}
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+            </div>
+            <div class="dropdown mt-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown">
+                    Dropdown button
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <h1> CortMap </h1>
     <div class="container-fluid p-3 my-3 border bg-primary">
         <div class="row my-3 border bg-secondary" style= "padding: 10px;">
@@ -68,7 +95,7 @@
             <div class="col p-2 my-3" align = "center">
                 <div class="card" style="width: 18rem;">
                     <img src="https://disease.sh/assets/img/flags/zw.png" class="card-img-top" alt="사진1">
-                    <div class="card-body">
+                    <div class="card-body"  >
                         <h5 class="card-title">숙소1</h5>
                         <p class="card-text">에디터 추천 숙소 예약 어쩌구 저쩌구 동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세</p>
                         <a href="#" class="btn btn-primary">Go somewhere</a>

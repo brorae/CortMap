@@ -16,10 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from CortMapApp.views import main, data
+from CortMapApp.views import main, data, base
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main, name = "main"),
-    path('data/',data, name = "data")
+    path('data/',data, name = "data"),
+    path('base',base,name = "base")
 ]

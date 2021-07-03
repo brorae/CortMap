@@ -60,15 +60,17 @@
             radius: Math.sqrt(alltake) * 150,
             //optimized: false,
           });
-          const markerString =  "<div class = 'infoWindowCustom'>국가 이름: "+ title + " &nbsp"
-                              + '<img src="' + flag + '"class="img" alt="" width = "30px" height = "20px" style = "border:1px solid">' + "<br>"
-                              + "총 인구수: " + popularity.toString() + "<br>"
-                              + "총 확진자수: " + alltake.toString() + "<br>"
-                              + "금일 확진자수: " + tdtake.toString() + "<br>"
-                              + "총 사망자수: " + alldeath.toString() + "<br>"
-                              + "금일 사망자수: " + tddeath.toString() + "<br>"
-                              + "검사시행 인구수: " + allcheck.toString() + "<br>"
-                              + "백신 접종인구수: " + allvac.toString() + "<br><div>"
+          const markerString =  "<div class = 'infoWindowCustom'>"
+                              + "<p class = 'title'>"
+                              + '<img src="' + flag + '"class="flag" alt="" >' + " &nbsp"
+                              + title + "</p>"
+                              + "<p class = 'text'>총 인구수: " + popularity.toString() + "</p>"
+                              + "<p class = 'text'>총 확진자수: " + alltake.toString() + "</p>"
+                              + "<p class = 'text'>금일 확진자수: " + tdtake.toString() + "</p>"
+                              + "<p class = 'text'>총 사망자수: " + alldeath.toString() + "</p>"
+                              + "<p class = 'text'>금일 사망자수: " + tddeath.toString() + "</p>"
+                              + "<p class = 'text'>검사시행 인구수: " + allcheck.toString() + "</p>"
+                              + "<p class = 'text'>백신 접종인구수: " + allvac.toString() + "</p><div>"
           
           circle.addListener("click", () => {
             infoWindow.close();
@@ -124,7 +126,7 @@
         controlUI.appendChild(controlText);
         // Setup the click event listeners
         controlUI.addEventListener("click", () => {
-          
+          {% comment %} 여기다가 클릭시 쏘는 function 집어넣기 {% endcomment %}
         });
       }
       /* 좌측 상단 버튼 부분
