@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from CortMapApp.views import main, data, base, showProhibition
+from CortMapApp.views import main, data, base, recommend, detail, showProhibition
+
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
