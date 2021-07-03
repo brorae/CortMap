@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="48.78" height="60.495" viewBox="0 0 48.78 60.495">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #eb5a38;
+      }
+
+      .cls-2 {
+        filter: url(#패스_2006);
+      }
+    </style>
+    <filter id="패스_2006" x="0" y="0" width="48.78" height="60.495" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="hovermark" transform="translate(9 6)">
+    <g class="cls-2" transform="matrix(1, 0, 0, 1, -9, -6)">
+      <path id="패스_2006-2" data-name="패스 2006" class="cls-1" d="M85.963,0a15.407,15.407,0,0,0-15.39,15.39c0,10.531,13.773,25.992,14.359,26.645a1.386,1.386,0,0,0,2.062,0c.586-.653,14.359-16.114,14.359-26.645A15.408,15.408,0,0,0,85.963,0Zm0,23.133a7.743,7.743,0,1,1,7.743-7.743A7.752,7.752,0,0,1,85.963,23.133Z" transform="translate(-61.57 6)"/>
+    </g>
+  </g>
+</svg>
