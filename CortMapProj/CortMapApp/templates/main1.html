@@ -1,0 +1,133 @@
+{% extends "index.html" %}
+{% load static %}
+{% block content %}
+  <div id="map"></div>
+<div style="display: none">
+  <div class="controls zoom-control">
+    <button class="zoom-control-in" title="Zoom In">+</button>
+    <button class="zoom-control-out" title="Zoom Out">−</button>
+  </div>
+  <div>
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+    <button type="button" class="btn btn-outline-primary">Primary</button>
+  </div>
+<script>
+  function initMap() {
+    const map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 2.5,
+      center: { lat: 37, lng: 127.5 },
+      disableDefaultUI: true,
+      zoomControl: true,
+      zoomControlOptions: {
+      position: google.maps.ControlPosition.RIGHT_CENTER,
+      },
+    });
+
+    const markerList = [
+      {% for ctry in CorData %}
+      [{ lat: {{ctry.1}}, lng: {{ctry.2}} },
+        "{{ctry.0}}", // 국가이름
+        '{{ctry.3}}', // 국기 url
+        {{ctry.4}},  // 총 인구수 
+        {{ctry.5}},  // 총 확진자수 
+        {{ctry.6}}, // 금일 확진자수
+        {{ctry.7}}, // 총 사망자수
+        {{ctry.8}}, // 금일 사망자수
+        {{ctry.9}}, // 검사시행 인구수
+        "{{ctry.10}}" // 백신 접종인구수
+      ],
+      {% endfor %}
+    ];
+    
+    var infoWindow = new google.maps.InfoWindow();
+
+    markerList.forEach(([pos,title,flag,popularity,alltake,tdtake,alldeath,tddeath,allcheck,allvac], i) => {
+      const circle = new google.maps.Circle({
+        strokeColor: "#FF0000",
+        strokeOpacity: 1,
+        strokeWeight: 1,
+        fillColor: "#FF0000",
+        fillOpacity: 0.25,      
+        center: pos,
+        map,
+        radius: Math.sqrt(alltake) * 150,
+        //optimized: false,
+      });
+      const markerString =  "<div class = 'infoWindowCustom'>"
+                          + "<p class = 'title'>"
+                          + '<img src="' + flag + '"class="flag" alt="" >' + " &nbsp"
+                          + title + "</p>"
+                          + "<p class = 'text'>총 인구수: " + popularity.toString() + "</p>"
+                          + "<p class = 'text'>총 확진자수: " + alltake.toString() + "</p>"
+                          + "<p class = 'text'>금일 확진자수: " + tdtake.toString() + "</p>"
+                          + "<p class = 'text'>총 사망자수: " + alldeath.toString() + "</p>"
+                          + "<p class = 'text'>금일 사망자수: " + tddeath.toString() + "</p>"
+                          + "<p class = 'text'>검사시행 인구수: " + allcheck.toString() + "</p>"
+                          + "<p class = 'text'>백신 접종인구수: " + allvac.toString() + "</p><div>"
+      
+      circle.addListener("click", () => {
+        infoWindow.close();
+        var nextinfoWindow = new google.maps.InfoWindow({position: pos});
+        nextinfoWindow.setContent(markerString);
+        nextinfoWindow.open(map);
+        infoWindow = nextinfoWindow;
+        map.setZoom(5);
+        map.setCenter(pos);
+      });
+    });
+
+    /* 좌측 상단 버튼 부분
+        코드 시작 */
+    const centerControlDiv1 = document.createElement("div");
+    const centerControlDiv2 = document.createElement("div");
+    const centerControlDiv3 = document.createElement("div");
+    const centerControlDiv4 = document.createElement("div");
+    CenterControl(centerControlDiv1, "모두", map);
+    CenterControl(centerControlDiv2, "여행가능", map);
+    CenterControl(centerControlDiv3, "격리", map);
+    CenterControl(centerControlDiv4, "입국금지", map);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv1);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv2);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv3);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv4);
+  }
+  function CenterControl(controlDiv, name, map) {
+    // Set CSS for the control border.
+    const controlUI = document.createElement("div");
+    controlUI.style.backgroundColor = "#fff";
+    controlUI.style.border = "2px solid #fff";
+    controlUI.style.borderRadius = "20px";
+    controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
+    controlUI.style.cursor = "pointer";
+    controlUI.style.marginTop = "8px";
+    controlUI.style.marginBottom = "22px";
+    controlUI.style.marginLeft = "5px";
+    controlUI.style.marginRight = "5px";
+    controlUI.style.textAlign = "center";
+    controlUI.title = "Click";
+    controlDiv.appendChild(controlUI);
+    // Set CSS for the control interior.
+    const controlText = document.createElement("div");
+    controlText.style.color = "rgb(25,25,25)";
+    controlText.style.fontFamily = "Roboto,Arial,sans-serif";
+    controlText.style.fontSize = "13px";
+    controlText.style.lineHeight = "30px";
+    controlText.style.width = "80px"
+    controlText.style.paddingLeft = "5px";
+    controlText.style.paddingRight = "5px";
+    controlText.innerHTML = name;
+    controlUI.appendChild(controlText);
+    // Setup the click event listeners
+    controlUI.addEventListener("click", () => {
+      {% comment %} 여기다가 클릭시 쏘는 function 집어넣기 {% endcomment %}
+    });
+  }
+  /* 좌측 상단 버튼 부분
+        코드 끝 */
+  
+</script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5_5RuyzYDI3IaKsdp0rz8GXy32AZzReM&&callback=initMap&libraries=&v=weekly"
+  async
+></script>
+{% endblock content %}
