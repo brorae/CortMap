@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from CortMapApp.views import main, data, base, showProhibition
+from CortMapApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,4 +24,5 @@ urlpatterns = [
     path('data/',data, name = "data"),
     path('base/',base,name = "base"),
     path('showProhibition/',showProhibition,name="showProhibition"),
+    path('travelPossible/',travelPossible,name="travelPossible"),
 ]

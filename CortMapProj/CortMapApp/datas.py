@@ -90,6 +90,25 @@ def getProhibitionInformation():
                 ret.append(ctry)
     return ret
 
+def getImpossibleTravel():
+    ret = []
+    prohibitTravel = ['Iraq', 'Syrian Arab Republic', 'Libyan Arab Jamahiriya', 'Somalia', 'Yemen']
+    ctryInform = getCountriesInformation()
+    for ctry in ctryInform:
+        for pro_ctry in prohibitTravel:
+            if ctry[0] == pro_ctry:
+                ret.append(ctry)
+    return ret
+
+def getPossibleTravel():
+    prohibitTravel = ['Iraq', 'Syrian Arab Republic', 'Libyan Arab Jamahiriya', 'Somalia', 'Yemen']
+    ctryInform = getCountriesInformation()
+    for ctry in ctryInform:
+        for pro_ctry in prohibitTravel:
+            if ctry[0] == pro_ctry:
+                ctryInform.remove(ctry)
+    return ctryInform
+
 
 
 #코로나 관련 정보 받아오는 곳

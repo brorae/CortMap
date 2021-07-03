@@ -110,3 +110,7 @@ html,body {
   #target {
     width: 345px;
   }
+
+  #prohibit{
+    color: #FF0000;
+  }

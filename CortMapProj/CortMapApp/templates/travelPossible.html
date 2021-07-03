@@ -23,8 +23,24 @@
           },
         });
 
-        const markerList = [
-          {% for ctry in ProhibitCorData %}
+        const markerList_impossible = [
+          {% for ctry in TravelImpossibleCountry %}
+          [{ lat: {{ctry.1}}, lng: {{ctry.2}} },
+           "{{ctry.0}}", // 국가이름
+           '{{ctry.3}}', // 국기 url
+            {{ctry.4}},  // 총 인구수 
+            {{ctry.5}},  // 총 확진자수 
+            {{ctry.6}}, // 금일 확진자수
+            {{ctry.7}}, // 총 사망자수
+            {{ctry.8}}, // 금일 사망자수
+            {{ctry.9}}, // 검사시행 인구수
+            "{{ctry.10}}" // 백신 접종인구수
+          ],
+          {% endfor %}
+        ];
+        
+        const markerList_possible = [
+          {% for ctry in TravelPossibleCountry %}
           [{ lat: {{ctry.1}}, lng: {{ctry.2}} },
            "{{ctry.0}}", // 국가이름
            '{{ctry.3}}', // 국기 url
@@ -41,7 +57,45 @@
         
         var infoWindow = new google.maps.InfoWindow();
 
-        markerList.forEach(([pos,title,flag,popularity,alltake,tdtake,alldeath,tddeath,allcheck,allvac], i) => {
+        markerList_possible.forEach(([pos,title,flag,popularity,alltake,tdtake,alldeath,tddeath,allcheck,allvac], i) => {
+          const circle = new google.maps.Circle({
+            strokeColor: "#0000FF",
+            strokeOpacity: 1,
+            strokeWeight: 1,
+            fillColor: "#0000FF",
+            fillOpacity: 0.25,      
+            center: pos,
+            map,
+            radius: Math.sqrt(alltake) * 150,
+            //optimized: false,
+          });
+          
+
+          const markerString =  "<div class = 'infoWindowCustom'>"
+                              + "<p class = 'title'>"
+                              + '<img src="' + flag + '"class="flag" alt="" >' + " &nbsp"
+                              + title + "</p>"
+                              + "<h2 class = 'text'>여행 가능 국가</h2>"
+                              + "<p class = 'text'>총 인구수: " + popularity.toString() + "</p>"
+                              + "<p class = 'text'>총 확진자수: " + alltake.toString() + "</p>"
+                              + "<p class = 'text'>금일 확진자수: " + tdtake.toString() + "</p>"
+                              + "<p class = 'text'>총 사망자수: " + alldeath.toString() + "</p>"
+                              + "<p class = 'text'>금일 사망자수: " + tddeath.toString() + "</p>"
+                              + "<p class = 'text'>검사시행 인구수: " + allcheck.toString() + "</p>"
+                              + "<p class = 'text'>백신 접종인구수: " + allvac.toString() + "</p><div>"
+          
+          circle.addListener("click", () => {
+            infoWindow.close();
+            var nextinfoWindow = new google.maps.InfoWindow({position: pos});
+            nextinfoWindow.setContent(markerString);
+            nextinfoWindow.open(map);
+            infoWindow = nextinfoWindow;
+            map.setZoom(5);
+            map.setCenter(pos);
+          });
+        });
+
+        markerList_impossible.forEach(([pos,title,flag,popularity,alltake,tdtake,alldeath,tddeath,allcheck,allvac], i) => {
           const circle = new google.maps.Circle({
             strokeColor: "#FF0000",
             strokeOpacity: 1,
@@ -50,14 +104,16 @@
             fillOpacity: 0.25,      
             center: pos,
             map,
-            radius: Math.sqrt(alltake) * 1000,
+            radius: Math.sqrt(alltake) * 500,
             //optimized: false,
           });
+          
+
           const markerString =  "<div class = 'infoWindowCustom'>"
                               + "<p class = 'title'>"
                               + '<img src="' + flag + '"class="flag" alt="" >' + " &nbsp"
                               + title + "</p>"
-                              + "<h2 class = 'text'>입국 금지 국가</h2>"
+                              + "<h2 class = 'text'>여행 금지 국가</h2>"
                               + "<p class = 'text'>총 인구수: " + popularity.toString() + "</p>"
                               + "<p class = 'text'>총 확진자수: " + alltake.toString() + "</p>"
                               + "<p class = 'text'>금일 확진자수: " + tdtake.toString() + "</p>"
@@ -87,6 +143,7 @@
         CenterControl(centerControlDiv2, "여행가능", map);
         CenterControl(centerControlDiv3, "격리", map);
         CenterControl(centerControlDiv4, "입국금지", map);
+        console.log(centerControlDiv1.innerText);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv1);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv2);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(centerControlDiv3);
@@ -120,6 +177,7 @@
         controlText.innerHTML = name;
         controlUI.appendChild(controlText);
         // Setup the click event listeners
+
         controlUI.addEventListener("click", function() {
             if (controlDiv.innerText == "모두")
                 movePage1();
@@ -132,7 +190,6 @@
         });
       }
 
-      
       function movePage1() { 
           var action="{% url 'main' %}";
           method="GET";
