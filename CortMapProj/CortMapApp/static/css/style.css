@@ -4,7 +4,7 @@
 }
 
 html,body {
-    height: 90%;
+    height: 100%;
     margin: 0;
     padding: 0;
 }
@@ -147,4 +147,8 @@ html,body {
   
   #target {
     width: 345px;
+  }
+
+  #prohibit{
+    color: #FF0000;
   }
