@@ -20,9 +20,14 @@ from CortMapApp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', main, name = "main"),
-    path('data/',data, name = "data"),
-    path('base/',base,name = "base"),
-    path('showProhibition/',showProhibition,name="showProhibition"),
+    path('', main, name="main"),
+    path('data/', data, name="data"),
+    path('base/', base, name="base"),
+    path('showProhibition/', showProhibition, name="showProhibition"),
+    path('rec/', recommend, name='recommend'),
+    path('detail/<int:id>', detail, name='detail'),
     path('travelPossible/',travelPossible,name="travelPossible"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
