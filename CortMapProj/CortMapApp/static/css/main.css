@@ -2692,6 +2692,13 @@
 				position: relative;
 			}
 
+			ul.contact lili {
+				text-decoration: none;
+				margin: 1.5em 0 0 0;
+				position: relative;
+			}
+
+
 				ul.contact li:before {
 					-moz-osx-font-smoothing: grayscale;
 					-webkit-font-smoothing: antialiased;
@@ -3670,8 +3677,8 @@
 		}
 
 			#sidebar > .inner > * {
-				border-bottom: solid 2px rgba(210, 215, 217, 0.75);
-				margin: 0 0 3.5em 0;
+				/* border-bottom: solid 2px rgba(210, 215, 217, 0.75);
+				margin: 0 0 3.5em 0; */
 				padding: 0 0 3.5em 0;
 			}
 
