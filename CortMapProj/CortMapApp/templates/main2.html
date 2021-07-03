@@ -50,7 +50,7 @@
             fillOpacity: 0.25,      
             center: pos,
             map,
-            radius: Math.sqrt(alltake) * 150,
+            radius: Math.sqrt(alltake) * 200,
             //optimized: false,
           });
           const markerString =  "<div class = 'infoWindowCustom'>"
@@ -133,17 +133,20 @@
         });
       }
 
-      
       function movePage1() { 
-          var link = 'https://www.nexon.com/';
-          location.href=link;
-          location.href(link);
+          var action="{% url 'main' %}";
+          method="GET";
+          enctype="multipart/form-data";
+          location.href=action;
+          location.href(action);
       }
 
       function movePage2() { 
-          var link = 'https://www.naver.com/';
-          location.href=link;
-          location.href(link);
+          var action="{% url 'travelPossible' %}";
+          method="GET";
+          enctype="multipart/form-data";
+          location.href=action;
+          location.href(action);
       }
 
       function movePage3() { 

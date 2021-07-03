@@ -19,6 +19,8 @@ def data(request):
     context = {
         "CorData": getCountriesInformation(),
         "CorData2": getProhibitionInformation(),
+        "CorData3": getPossibleTravel(),
+        "CorData4": getImpossibleTravel(),
     }
     return render(request, 'data.html', context)
 
@@ -54,3 +56,13 @@ def detail(request, id):
         'image': detail_data.image,
     }
     return render(request, 'detail.html', context)
+
+def travelPossible(request):
+    datas = response.json()
+    context = {
+        "CorData": getCountriesInformation(),
+        "TravelPossibleCountry" : getPossibleTravel(),
+        "TravelImpossibleCountry" : getImpossibleTravel(),
+    }
+    return render(request,'travelPossible.html',context)
+
