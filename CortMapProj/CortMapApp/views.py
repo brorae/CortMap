@@ -40,14 +40,12 @@ def showProhibition(request):
 
 def recommend(request):
     blogs = Blog.objects.all()
-    context = {
-        'blogs': blogs
-    }
     bloggs = Blogg.objects.all()
-    contextt = {
+    context = {
+        'blogs': blogs,
         'bloggs': bloggs
     }
-    return render(request, 'recommend.html', context, contextt)
+    return render(request, 'recommend.html', context)
 
 
 def detail(request, id):
